@@ -7,6 +7,11 @@ public class TaskRepository {
 
 	private static List<Task> records = new ArrayList<Task>();
 	private static Integer nextCode = 1;
+	static {
+		records.add(new Task(nextCode++, "Task 01"));
+		records.add(new Task(nextCode++, "Task 02"));
+		records.add(new Task(nextCode++, "Task 03"));
+	}
 	
 	public Task findByCode(final Integer code) {
 		return records.stream().filter((current) -> current.getCode().equals(code)).findFirst().orElse(null);
